@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MainPokemon
 {
-    public partial class Form1 : Form
+    public partial class SubMenuTrainer : Form
     {
-        public Form1()
+        public SubMenuTrainer()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
