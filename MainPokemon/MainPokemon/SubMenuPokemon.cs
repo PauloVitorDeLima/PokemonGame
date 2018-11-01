@@ -36,5 +36,11 @@ namespace MainPokemon
         {
 
         }
+
+        private void BtRegisterPokemon_Click(object sender, EventArgs e)
+        {
+            RegisterPokemon registerPokemon = new RegisterPokemon();
+            registerPokemon.Show();
+        }
     }
 }

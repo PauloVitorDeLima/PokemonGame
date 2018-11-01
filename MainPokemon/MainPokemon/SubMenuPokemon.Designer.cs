@@ -43,12 +43,13 @@
             this.BtRegisterPokemon.TabIndex = 3;
             this.BtRegisterPokemon.Text = "CADASTRAR POKÉMON";
             this.BtRegisterPokemon.UseVisualStyleBackColor = false;
+            this.BtRegisterPokemon.Click += new System.EventHandler(this.BtRegisterPokemon_Click);
             // 
             // BtListPokemon
             // 
             this.BtListPokemon.BackColor = System.Drawing.SystemColors.Info;
             this.BtListPokemon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtListPokemon.Location = new System.Drawing.Point(12, 452);
+            this.BtListPokemon.Location = new System.Drawing.Point(12, 125);
             this.BtListPokemon.Name = "BtListPokemon";
             this.BtListPokemon.Size = new System.Drawing.Size(172, 52);
             this.BtListPokemon.TabIndex = 4;
@@ -60,6 +61,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(720, 516);
             this.Controls.Add(this.BtListPokemon);
             this.Controls.Add(this.BtRegisterPokemon);
