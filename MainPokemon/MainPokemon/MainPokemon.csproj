@@ -103,6 +103,9 @@
     <EmbeddedResource Include="RegisterPokemon.resx">
       <DependentUpon>RegisterPokemon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterTrainer.resx">
+      <DependentUpon>RegisterTrainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubMenuPokemon.resx">
       <DependentUpon>SubMenuPokemon.cs</DependentUpon>
     </EmbeddedResource>

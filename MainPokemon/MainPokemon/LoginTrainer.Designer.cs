@@ -46,6 +46,7 @@
             this.textBox1.Size = new System.Drawing.Size(289, 29);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "LOGIN:";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // BtLogin
             // 
@@ -69,6 +70,7 @@
             this.BtRegister.TabIndex = 5;
             this.BtRegister.Text = "CADASTRAR";
             this.BtRegister.UseVisualStyleBackColor = false;
+            this.BtRegister.Click += new System.EventHandler(this.BtRegister_Click);
             // 
             // textBox2
             // 
@@ -79,6 +81,7 @@
             this.textBox2.Size = new System.Drawing.Size(172, 29);
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "SENHA:";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TxtBxLogin
             // 
@@ -87,6 +90,7 @@
             this.TxtBxLogin.Name = "TxtBxLogin";
             this.TxtBxLogin.Size = new System.Drawing.Size(293, 29);
             this.TxtBxLogin.TabIndex = 7;
+            this.TxtBxLogin.TextChanged += new System.EventHandler(this.TxtBxLogin_TextChanged);
             // 
             // TxtBxPassword
             // 
@@ -96,6 +100,7 @@
             this.TxtBxPassword.PasswordChar = '*';
             this.TxtBxPassword.Size = new System.Drawing.Size(293, 29);
             this.TxtBxPassword.TabIndex = 8;
+            this.TxtBxPassword.TextChanged += new System.EventHandler(this.TxtBxPassword_TextChanged);
             // 
             // LoginTrainer
             // 

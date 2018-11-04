@@ -8,6 +8,10 @@ namespace MainPokemon
 {
     class Trainer
     {
+        string login;
+        string password;
         
+        public string Login { get => login; set => login = value; }
+        public string Password { get => password; set => password = value; }
     }
 }

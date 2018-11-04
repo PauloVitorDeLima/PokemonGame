@@ -8,22 +8,22 @@ namespace MainPokemon
 {
     class Pokemon
     {
-        int ID;
-        string Name;
-        string PathImage;
-        string Evolution;
-        double Force;
-        int SpecialEffect;
-        double Height;
-        double Weight;
+        int iD;
+        string name;
+        string pathImage;
+        string evolution;
+        double force;
+        int specialEffect;
+        double height;
+        double weight;
 
-        public int ID1 { get => ID; set => ID = value; }
-        public string Name1 { get => Name; set => Name = value; }
-        public string PathImage1 { get => PathImage; set => PathImage = value; }
-        public string Evolution1 { get => Evolution; set => Evolution = value; }
-        public double Force1 { get => Force; set => Force = value; }
-        public int SpecialEffect1 { get => SpecialEffect; set => SpecialEffect = value; }
-        public double Height1 { get => Height; set => Height = value; }
-        public double Weight1 { get => Weight; set => Weight = value; }
+        public int ID { get => iD; set => iD = value; }
+        public string Name { get => name; set => name = value; }
+        public string PathImage { get => pathImage; set => pathImage = value; }
+        public string Evolution { get => evolution; set => evolution = value; }
+        public double Force { get => force; set => force = value; }
+        public int SpecialEffect { get => specialEffect; set => specialEffect = value; }
+        public double Height { get => height; set => height = value; }
+        public double Weight { get => weight; set => weight = value; }
     }
 }

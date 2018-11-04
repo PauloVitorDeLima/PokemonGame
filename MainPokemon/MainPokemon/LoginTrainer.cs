@@ -52,8 +52,6 @@ namespace MainPokemon
             {
                 dirUser.Create();
             }
-
-
         }
 
         private void BtLogin_Click(object sender, EventArgs e)
@@ -74,7 +72,7 @@ namespace MainPokemon
             }   
             else
             {
-                    LoginError();
+                LoginError();
             }
             }
             catch
@@ -88,6 +86,34 @@ namespace MainPokemon
             TxtBxLogin.Clear();
             TxtBxPassword.Clear();
             TxtBxLogin.Focus();
+        }
+
+        private void BtRegister_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterTrainer registerTrainer = new RegisterTrainer();
+            registerTrainer.ShowDialog();
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtBxPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtBxLogin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
