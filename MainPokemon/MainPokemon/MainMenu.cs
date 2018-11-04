@@ -17,9 +17,11 @@ namespace MainPokemon
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtPokemon_Click(object sender, EventArgs e)
         {
-
+            HideMainMenu();
+            SubMenuPokemon pokemon = new SubMenuPokemon();
+            pokemon.ShowDialog();
         }
 
         private void BtTrainer_Click(object sender, EventArgs e)
@@ -28,17 +30,9 @@ namespace MainPokemon
             SubMenuTrainer trainer = new SubMenuTrainer();
             trainer.ShowDialog();
         }
-
-        private void BtPokemon_Click(object sender, EventArgs e)
-        {
-            HideMainMenu();
-            SubMenuPokemon pokemon = new SubMenuPokemon();
-            pokemon.ShowDialog();
-        }
         public void HideMainMenu()
         {
             this.Hide();
         }
     }
-    
 }
