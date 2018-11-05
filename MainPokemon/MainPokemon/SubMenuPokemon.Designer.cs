@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuPokemon));
             this.BtRegisterPokemon = new System.Windows.Forms.Button();
             this.BtListPokemon = new System.Windows.Forms.Button();
+            this.BtReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtRegisterPokemon
@@ -56,6 +57,18 @@
             this.BtListPokemon.Text = "LISTAR POKÉMONS";
             this.BtListPokemon.UseVisualStyleBackColor = false;
             // 
+            // BtReturn
+            // 
+            this.BtReturn.BackColor = System.Drawing.SystemColors.Info;
+            this.BtReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtReturn.Location = new System.Drawing.Point(12, 242);
+            this.BtReturn.Name = "BtReturn";
+            this.BtReturn.Size = new System.Drawing.Size(172, 52);
+            this.BtReturn.TabIndex = 5;
+            this.BtReturn.Text = "VOLTAR";
+            this.BtReturn.UseVisualStyleBackColor = false;
+            this.BtReturn.Click += new System.EventHandler(this.BtReturn_Click);
+            // 
             // SubMenuPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -63,6 +76,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(720, 516);
+            this.Controls.Add(this.BtReturn);
             this.Controls.Add(this.BtListPokemon);
             this.Controls.Add(this.BtRegisterPokemon);
             this.Name = "SubMenuPokemon";
@@ -76,5 +90,6 @@
 
         private System.Windows.Forms.Button BtRegisterPokemon;
         private System.Windows.Forms.Button BtListPokemon;
+        private System.Windows.Forms.Button BtReturn;
     }
 }

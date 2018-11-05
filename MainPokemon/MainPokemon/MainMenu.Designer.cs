@@ -66,6 +66,7 @@
             this.Controls.Add(this.BtTrainer);
             this.Controls.Add(this.BtPokemon);
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
             this.ResumeLayout(false);
 

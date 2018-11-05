@@ -16,5 +16,12 @@ namespace MainPokemon
         {
             InitializeComponent();
         }
+
+        private void BtVoltar_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            this.Hide();
+            mainMenu.ShowDialog();
+        }
     }
 }

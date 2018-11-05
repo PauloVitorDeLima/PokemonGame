@@ -40,7 +40,14 @@ namespace MainPokemon
         private void BtRegisterPokemon_Click(object sender, EventArgs e)
         {
             RegisterPokemon registerPokemon = new RegisterPokemon();
-            registerPokemon.Show();
+            registerPokemon.ShowDialog();
+        }
+
+        private void BtReturn_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = new MainMenu();
+            this.Hide();
+            mainMenu.ShowDialog();
         }
     }
 }
