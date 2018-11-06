@@ -110,6 +110,7 @@
             this.MskTxtBxHeight.Name = "MskTxtBxHeight";
             this.MskTxtBxHeight.Size = new System.Drawing.Size(234, 29);
             this.MskTxtBxHeight.TabIndex = 17;
+            this.MskTxtBxHeight.TextChanged += new System.EventHandler(this.MskTxtBxHeight_TextChanged);
             // 
             // MskTxtBxWeight
             // 
@@ -138,6 +139,7 @@
             this.BtRegisterPokemon.TabIndex = 21;
             this.BtRegisterPokemon.Text = "CADASTRAR POKÉMON";
             this.BtRegisterPokemon.UseVisualStyleBackColor = false;
+            this.BtRegisterPokemon.Click += new System.EventHandler(this.BtRegisterPokemon_Click);
             // 
             // BtCancel
             // 
