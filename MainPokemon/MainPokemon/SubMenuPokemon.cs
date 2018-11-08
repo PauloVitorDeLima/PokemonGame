@@ -53,23 +53,23 @@ namespace MainPokemon
 
         private void BtListPokemon_Click(object sender, EventArgs e)
         {
+            
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
-                int i = 1;
-            try
+
+            DirectoryInfo dirPokemon = new DirectoryInfo(@"C:\Users\Public\DataBase\Pokemons\");
+            FileInfo[] fileInfo = dirPokemon.GetFiles("*", SearchOption.AllDirectories);
+            StreamReader streamReaderPokemons;
+            foreach (FileInfo file in fileInfo)
             {
-                StreamReader streamReaderPokemons = new StreamReader(@"C:\Users\Public\DataBase\Pokemons\" + i + ".txt");
+                streamReaderPokemons = new StreamReader(file.FullName);
                 string Line;
                 while ((Line = streamReaderPokemons.ReadLine()) != null)
                 {
-                    MessageBox.Show("texto: " + Line);
+                    MessageBox.Show("Pokemon " + Line);
+
                 }
                 streamReaderPokemons.Close();
-                i++;
-            }
-            catch
-            {
-
             }
         }
     }
