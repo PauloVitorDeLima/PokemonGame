@@ -60,16 +60,43 @@ namespace MainPokemon
             DirectoryInfo dirPokemon = new DirectoryInfo(@"C:\Users\Public\DataBase\Pokemons\");
             FileInfo[] fileInfo = dirPokemon.GetFiles("*", SearchOption.AllDirectories);
             StreamReader streamReaderPokemons;
+
+            List <Pokemon> pokemons = new List<Pokemon>();
+
+
+            /*
+             Conta c1 = new ContaCorrente();
+Conta c2 = new ContaPoupanca();
+Conta c3 = new ContaCorrente();
+
+// c1 fica na posição 0
+lista.Add(c1);
+// c2 na 1
+lista.Add(c2);
+// e c3 na 2
+lista.Add(c3); 
+             */
+            try
+            {
+
+            
             foreach (FileInfo file in fileInfo)
             {
                 streamReaderPokemons = new StreamReader(file.FullName);
+
                 string Line;
+                int CountLine = 1;
                 while ((Line = streamReaderPokemons.ReadLine()) != null)
                 {
-                    MessageBox.Show("Pokemon " + Line);
-
+                    this.DataGridViewPokemons.DataSource = pokemons;
+                    CountLine++;
                 }
                 streamReaderPokemons.Close();
+            }
+            }
+            catch
+            {
+
             }
         }
     }

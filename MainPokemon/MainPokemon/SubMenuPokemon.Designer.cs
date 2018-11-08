@@ -34,9 +34,10 @@
             this.BtReturn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PictureBoxPokemon = new System.Windows.Forms.PictureBox();
-            this.ListBoxPokemon = new System.Windows.Forms.ListBox();
+            this.DataGridViewPokemons = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).BeginInit();
             this.SuspendLayout();
             // 
             // BtRegisterPokemon
@@ -92,16 +93,13 @@
             this.PictureBoxPokemon.TabStop = false;
             this.PictureBoxPokemon.Visible = false;
             // 
-            // ListBoxPokemon
+            // DataGridViewPokemons
             // 
-            this.ListBoxPokemon.FormattingEnabled = true;
-            this.ListBoxPokemon.Items.AddRange(new object[] {
-            "ID             "});
-            this.ListBoxPokemon.Location = new System.Drawing.Point(190, 84);
-            this.ListBoxPokemon.Name = "ListBoxPokemon";
-            this.ListBoxPokemon.Size = new System.Drawing.Size(632, 420);
-            this.ListBoxPokemon.TabIndex = 8;
-            this.ListBoxPokemon.Visible = false;
+            this.DataGridViewPokemons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 61);
+            this.DataGridViewPokemons.Name = "DataGridViewPokemons";
+            this.DataGridViewPokemons.Size = new System.Drawing.Size(617, 443);
+            this.DataGridViewPokemons.TabIndex = 8;
             // 
             // SubMenuPokemon
             // 
@@ -110,7 +108,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(834, 516);
-            this.Controls.Add(this.ListBoxPokemon);
+            this.Controls.Add(this.DataGridViewPokemons);
             this.Controls.Add(this.PictureBoxPokemon);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtReturn);
@@ -121,6 +119,7 @@
             this.Text = "SubMenuPokemon";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,6 +131,6 @@
         private System.Windows.Forms.Button BtReturn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox PictureBoxPokemon;
-        private System.Windows.Forms.ListBox ListBoxPokemon;
+        private System.Windows.Forms.DataGridView DataGridViewPokemons;
     }
 }
