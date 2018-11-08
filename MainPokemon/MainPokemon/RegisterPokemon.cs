@@ -17,7 +17,7 @@ namespace MainPokemon
         {
             InitializeComponent();
         }
-
+        string PathImage = "";
         Pokemon pokemon = new Pokemon();
 
 
@@ -73,37 +73,31 @@ namespace MainPokemon
             Pokemon pokemon = new Pokemon();
             pokemon.ID = int.Parse(MskTxtBxId.Text);
             pokemon.Name = TxtBxName.Text;
+            pokemon.Height = double.Parse(MskTxtBxHeight.Text);
+            pokemon.Weight = double.Parse(MskTxtBxWeight.Text);
+            pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
             pokemon.Force = int.Parse(MskTxtBxForce.Text);
-            pokemon.
-            pokemon
+            pokemon.PathImage = PathImage;
+            if (System.IO.File.Exists(@"C:\Users\Public\DataBase\Pokemons\" + pokemon.ID + ".txt") == true)
+            {
+                MessageBox.Show("Não foi possível cadastrar pois Pokemon com mesmo ID já existe", "ERROR",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                StreamWriter streamWriterPokemon = new StreamWriter(@"C:\Users\Public\DataBase\Pokemons\"
+                    +pokemon.ID+".txt");
+                streamWriterPokemon.WriteLine(pokemon.Name);
+                streamWriterPokemon.WriteLine(pokemon.Height);
+                streamWriterPokemon.WriteLine(pokemon.Weight);
+                streamWriterPokemon.WriteLine(pokemon.SpecialEffect);
+                streamWriterPokemon.WriteLine(pokemon.Force);
+                streamWriterPokemon.WriteLine(pokemon.PathImage);
+                streamWriterPokemon.Close();
 
-            /*
-             Trainer trainer = new Trainer();
-                trainer.Login = TxtBxLogin.Text;
-                trainer.Password = TxtBxPassword.Text;
-                if (System.IO.File.Exists(@"C:\Users\Public\DataBase\Users\" + trainer.Login + ".txt") == true)
-                {
-                    MessageBox.Show("Não foi possível cadastrar pois usuário já existe", "ERROR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    StreamWriter streamWriterUser = new StreamWriter(@"C:\Users\Public\DataBase\Users\"
-                                + trainer.Login + ".txt");
-                    streamWriterUser.WriteLine(trainer.Password);
-                    streamWriterUser.Close();
-                    MessageBox.Show("Usuário cadastrado com Sucesso", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    MainMenu mainMenu = new MainMenu();
-                    this.Hide();
-                    mainMenu.Show();
-                } 
-             */
-
-
-
-            MessageBox.Show("Pokemon Cadastrado com Sucesso", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pokemon cadastrado com sucesso!!","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Hide();
+            }
         }
 
         private void MskTxtBxHeight_TextChanged(object sender, EventArgs e)
@@ -112,19 +106,41 @@ namespace MainPokemon
         }
         private void CalculateForce()
         {
-            if (String.IsNullOrEmpty(MskTxtBxEffect.Text) ||
-                String.IsNullOrEmpty(MskTxtBxHeight.Text) ||
-                String.IsNullOrEmpty(MskTxtBxWeight.Text))
+            try
             {
-                return;
+
+                if (String.IsNullOrEmpty(MskTxtBxEffect.Text) ||
+                    String.IsNullOrEmpty(MskTxtBxHeight.Text) ||
+                    String.IsNullOrEmpty(MskTxtBxWeight.Text))
+                {
+                    return;
+                }
+                else
+                {
+                    pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
+                    pokemon.Height = double.Parse(MskTxtBxHeight.Text);
+                    pokemon.Weight = double.Parse(MskTxtBxWeight.Text);
+                    pokemon.Force = Convert.ToInt32(Math.Sqrt(pokemon.Height * pokemon.Weight + pokemon.SpecialEffect));
+                    MskTxtBxForce.Text = pokemon.Force.ToString();
+                }
             }
-            else
+            catch
             {
-                pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
-                pokemon.Height = double.Parse(MskTxtBxHeight.Text);
-                pokemon.Weight = double.Parse(MskTxtBxWeight.Text);
-                pokemon.Force = Convert.ToSingle(Math.Sqrt(pokemon.Height * pokemon.Weight + pokemon.SpecialEffect));
-                MskTxtBxForce.Text = pokemon.Force.ToString();
+                MessageBox.Show("Insira valores válidos");
+                MskTxtBxHeight.Clear();
+                MskTxtBxWeight.Clear();
+            }
+        }
+
+        private void BtImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.FileName = "";
+            openFile.Filter = "Image Files (*.jpg, *.jpeg, *.jpe, *.gif, *.png) | *.jpg; *.jpeg; *.jpe; *.gif; *.png";
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                PictureBxImage.Image = new Bitmap(openFile.FileName);
+                PathImage = openFile.FileName;
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MainPokemon
 {
@@ -48,6 +49,28 @@ namespace MainPokemon
             MainMenu mainMenu = new MainMenu();
             this.Hide();
             mainMenu.ShowDialog();
+        }
+
+        private void BtListPokemon_Click(object sender, EventArgs e)
+        {
+            DataGridViewPokemons.Visible = true;
+            PictureBoxPokemon.Visible = true;
+                int i = 1;
+            try
+            {
+                StreamReader streamReaderPokemons = new StreamReader(@"C:\Users\Public\DataBase\Pokemons\" + i + ".txt");
+                string Line;
+                while ((Line = streamReaderPokemons.ReadLine()) != null)
+                {
+                    MessageBox.Show("texto: " + Line);
+                }
+                streamReaderPokemons.Close();
+                i++;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

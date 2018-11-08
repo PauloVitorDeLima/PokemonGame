@@ -56,7 +56,7 @@ namespace MainPokemon
 
                     MainMenu mainMenu = new MainMenu();
                     this.Hide();
-                    mainMenu.Show();
+                    mainMenu.ShowDialog();
                 }
             }
         }

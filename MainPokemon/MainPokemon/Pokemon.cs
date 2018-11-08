@@ -10,12 +10,15 @@ namespace MainPokemon
     {
         int iD;
         string name;
-        string pathImage;
-        string evolution;
-        int force;
-        int specialEffect;
         double height;
         double weight;
+        int specialEffect;
+        int force;
+        string pathImage;
+        string evolution;
+        
+        
+
 
         public int ID { get => iD; set => iD = value; }
         public string Name { get => name; set => name = value; }
