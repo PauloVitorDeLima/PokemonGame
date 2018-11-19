@@ -57,47 +57,13 @@ namespace MainPokemon
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
 
-            DirectoryInfo dirPokemon = new DirectoryInfo(@"C:\Users\Public\DataBase\Pokemons\");
-            FileInfo[] fileInfo = dirPokemon.GetFiles("*", SearchOption.AllDirectories);
-            StreamReader streamReaderPokemons;
+            StreamReader streamReaderPokemon = new StreamReader(@"C:\Users\Public\DataBase\Pokemons.txt");
 
-            List <Pokemon> pokemons = new List<Pokemon>();
+            string[] Dividir = streamReaderPokemon.ReadToEnd().Split('/');
 
+            List<string> Lista = new List<string>(Dividir);
 
-            /*
-             Conta c1 = new ContaCorrente();
-Conta c2 = new ContaPoupanca();
-Conta c3 = new ContaCorrente();
-
-// c1 fica na posição 0
-lista.Add(c1);
-// c2 na 1
-lista.Add(c2);
-// e c3 na 2
-lista.Add(c3); 
-             */
-            try
-            {
-
-            
-            foreach (FileInfo file in fileInfo)
-            {
-                streamReaderPokemons = new StreamReader(file.FullName);
-
-                string Line;
-                int CountLine = 1;
-                while ((Line = streamReaderPokemons.ReadLine()) != null)
-                {
-                    this.DataGridViewPokemons.DataSource = pokemons;
-                    CountLine++;
-                }
-                streamReaderPokemons.Close();
-            }
-            }
-            catch
-            {
-
-            }
+            MessageBox.Show("texto: "+Lista[2]);
         }
     }
 }

@@ -34,17 +34,6 @@ namespace MainPokemon
             Random random = new Random();
             MskTxtBxEffect.Text = random.Next(1, 5).ToString();
 
-
-            DirectoryInfo dirPokemon = new DirectoryInfo(@"C:\Users\Public\DataBase\Pokemons");
-            if (dirPokemon.Exists)
-            {
-                return;
-            }
-            else
-            {
-                dirPokemon.Create();
-            }
-
         }
 
         private void MskTxtBxWeight_TextChanged(object sender, EventArgs e)
@@ -78,26 +67,15 @@ namespace MainPokemon
             pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
             pokemon.Force = int.Parse(MskTxtBxForce.Text);
             pokemon.PathImage = PathImage;
-            if (System.IO.File.Exists(@"C:\Users\Public\DataBase\Pokemons\" + pokemon.ID + ".txt") == true)
-            {
-                MessageBox.Show("Não foi possível cadastrar pois Pokemon com mesmo ID já existe", "ERROR",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                StreamWriter streamWriterPokemon = new StreamWriter(@"C:\Users\Public\DataBase\Pokemons\"
-                    +pokemon.ID+".txt");
-                streamWriterPokemon.WriteLine(pokemon.Name);
-                streamWriterPokemon.WriteLine(pokemon.Height);
-                streamWriterPokemon.WriteLine(pokemon.Weight);
-                streamWriterPokemon.WriteLine(pokemon.SpecialEffect);
-                streamWriterPokemon.WriteLine(pokemon.Force);
-                streamWriterPokemon.WriteLine(pokemon.PathImage);
-                streamWriterPokemon.Close();
 
-                MessageBox.Show("Pokemon cadastrado com sucesso!!","",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                this.Hide();
-            }
+
+                StreamWriter streamWriterPokemon = new StreamWriter(@"C:\Users\Public\DataBase\Pokemons.txt", true);
+            streamWriterPokemon.WriteLine(pokemon.ID+"/"+pokemon.Name + "/" +pokemon.Height+"/"+pokemon.Weight+"/"+pokemon.SpecialEffect+"/"+
+                pokemon.Force+"/"+pokemon.PathImage);
+                streamWriterPokemon.Close();
+            MessageBox.Show("Pokemon cadastrado com Sucesso!!");
+
+            this.Hide();
         }
 
         private void MskTxtBxHeight_TextChanged(object sender, EventArgs e)

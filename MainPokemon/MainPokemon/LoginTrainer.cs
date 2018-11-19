@@ -58,22 +58,22 @@ namespace MainPokemon
         {
             try
             {
-            string[] BuscaLogin = File.ReadAllLines(@"C:\Users\Public\DataBase\Users\"+TxtBxLogin.Text+".txt");
+                string[] BuscaLogin = File.ReadAllLines(@"C:\Users\Public\DataBase\Users\" + TxtBxLogin.Text + ".txt");
                 int linha = 1;
                 string password, password2;
                 password = BuscaLogin[linha - 1];
                 password2 = TxtBxPassword.Text;
-            if (password == password2)
-            {
+                if (password == password2)
+                {
 
-                MainMenu mainMenu = new MainMenu();
-                this.Hide();
-                mainMenu.ShowDialog();
-            }   
-            else
-            {
-                LoginError();
-            }
+                    MainMenu mainMenu = new MainMenu();
+                    this.Hide();
+                    mainMenu.ShowDialog();
+                }
+                else
+                {
+                    LoginError();
+                }
             }
             catch
             {
@@ -93,7 +93,7 @@ namespace MainPokemon
             this.Hide();
             RegisterTrainer registerTrainer = new RegisterTrainer();
             registerTrainer.ShowDialog();
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
