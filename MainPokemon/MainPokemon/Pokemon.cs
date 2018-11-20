@@ -15,7 +15,7 @@ namespace MainPokemon
         int specialEffect;
         int force;
         string pathImage;
-        string evolution;
+        string evolution;   
         
         
 

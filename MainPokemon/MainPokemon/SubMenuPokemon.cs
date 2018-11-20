@@ -56,14 +56,24 @@ namespace MainPokemon
             
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
+            try
+            {
 
-            StreamReader streamReaderPokemon = new StreamReader(@"C:\Users\Public\DataBase\Pokemons.txt");
+            
+                StreamReader streamReaderPokemon = new StreamReader(@"C:\Users\Public\DataBase\Pokemons.txt");
 
-            string[] Dividir = streamReaderPokemon.ReadToEnd().Split('/');
-
-            List<string> Lista = new List<string>(Dividir);
-
-            MessageBox.Show("texto: "+Lista[2]);
+                string[] Dividir = streamReaderPokemon.ReadToEnd().Split('/');
+                int i = 0;
+                while(streamReaderPokemon.ReadLine() != null)
+                {
+                    DataGridViewPokemons.Columns.Add(Name, Dividir[i]);
+                    i++;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("ERROR");
+            }
         }
     }
 }

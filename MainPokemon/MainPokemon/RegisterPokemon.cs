@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.OleDb;
 
 namespace MainPokemon
 {
@@ -43,7 +44,6 @@ namespace MainPokemon
         private void BtRegisterPokemon_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(MskTxtBxWeight.Text) ||
-                String.IsNullOrEmpty(MskTxtBxId.Text) ||
                 String.IsNullOrEmpty(MskTxtBxHeight.Text) ||
                 String.IsNullOrEmpty(MskTxtBxForce.Text) ||
                 String.IsNullOrEmpty(MskTxtBxEffect.Text) ||
@@ -54,30 +54,10 @@ namespace MainPokemon
             }
             else
             {
-                CadastrarPokemon();
+
+                CadastrarNoBanco();
             }
         }
-        public void CadastrarPokemon()
-        {
-            Pokemon pokemon = new Pokemon();
-            pokemon.ID = int.Parse(MskTxtBxId.Text);
-            pokemon.Name = TxtBxName.Text;
-            pokemon.Height = double.Parse(MskTxtBxHeight.Text);
-            pokemon.Weight = double.Parse(MskTxtBxWeight.Text);
-            pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
-            pokemon.Force = int.Parse(MskTxtBxForce.Text);
-            pokemon.PathImage = PathImage;
-
-
-                StreamWriter streamWriterPokemon = new StreamWriter(@"C:\Users\Public\DataBase\Pokemons.txt", true);
-            streamWriterPokemon.WriteLine(pokemon.ID+"/"+pokemon.Name + "/" +pokemon.Height+"/"+pokemon.Weight+"/"+pokemon.SpecialEffect+"/"+
-                pokemon.Force+"/"+pokemon.PathImage);
-                streamWriterPokemon.Close();
-            MessageBox.Show("Pokemon cadastrado com Sucesso!!");
-
-            this.Hide();
-        }
-
         private void MskTxtBxHeight_TextChanged(object sender, EventArgs e)
         {
             CalculateForce();
@@ -119,6 +99,39 @@ namespace MainPokemon
             {
                 PictureBxImage.Image = new Bitmap(openFile.FileName);
                 PathImage = openFile.FileName;
+            }
+        }
+        public void CadastrarNoBanco()
+        {
+            Pokemon pokemon = new Pokemon();
+            pokemon.Name = TxtBxName.Text;
+            pokemon.Height = double.Parse(MskTxtBxHeight.Text);
+            pokemon.Weight = double.Parse(MskTxtBxWeight.Text);
+            pokemon.SpecialEffect = int.Parse(MskTxtBxEffect.Text);
+            pokemon.Force = int.Parse(MskTxtBxForce.Text);
+            pokemon.PathImage = PathImage;
+            try
+            {
+                //Mudar o caminho do Connection quando testar em outro computador
+                string StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+                OleDbConnection Connection = new OleDbConnection(StringConnection);
+                //Abre Conexão
+                Connection.Open();
+                String SQL;
+                SQL = "INSERT INTO Pokemon(Name_Pokemon, Height_Pokemon, Weight_Pokemon, SpecialEffect_Pokemon," +
+                    " Force_Pokemon, PathImage_Pokemon, Evolution_Pokemon) VALUES ";
+                SQL += "('"+pokemon.Name+ "', '"+pokemon.Height+ "', '" + pokemon.Weight+ "','" + pokemon.SpecialEffect+ "', '" 
+                    + pokemon.Force + "','" + pokemon.PathImage+ "','" + pokemon.Evolution + "')";
+                OleDbCommand CMD = new OleDbCommand(SQL, Connection);
+                CMD.ExecuteNonQuery();
+                Connection.Close();
+
+                MessageBox.Show("Pokemon Cadastrado com Sucesso","OKAY", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
