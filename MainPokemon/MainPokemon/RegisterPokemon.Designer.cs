@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterPokemon));
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.MskTxtBxId = new System.Windows.Forms.MaskedTextBox();
             this.MskTxtBxHeight = new System.Windows.Forms.MaskedTextBox();
             this.MskTxtBxWeight = new System.Windows.Forms.MaskedTextBox();
             this.TxtBxName = new System.Windows.Forms.TextBox();
@@ -48,21 +46,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBxImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(68, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 29);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "ID:";
-            // 
             // textBox3
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(68, 82);
+            this.textBox3.Location = new System.Drawing.Point(68, 56);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(326, 29);
             this.textBox3.TabIndex = 11;
@@ -72,7 +60,7 @@
             // 
             this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(68, 117);
+            this.textBox4.Location = new System.Drawing.Point(68, 91);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(326, 29);
             this.textBox4.TabIndex = 12;
@@ -82,7 +70,7 @@
             // 
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(68, 152);
+            this.textBox5.Location = new System.Drawing.Point(68, 126);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(326, 29);
             this.textBox5.TabIndex = 13;
@@ -92,24 +80,16 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(68, 47);
+            this.textBox2.Location = new System.Drawing.Point(68, 21);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(326, 29);
             this.textBox2.TabIndex = 10;
             this.textBox2.Text = "NOME:";
             // 
-            // MskTxtBxId
-            // 
-            this.MskTxtBxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MskTxtBxId.Location = new System.Drawing.Point(160, 12);
-            this.MskTxtBxId.Name = "MskTxtBxId";
-            this.MskTxtBxId.Size = new System.Drawing.Size(234, 29);
-            this.MskTxtBxId.TabIndex = 16;
-            // 
             // MskTxtBxHeight
             // 
             this.MskTxtBxHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MskTxtBxHeight.Location = new System.Drawing.Point(160, 82);
+            this.MskTxtBxHeight.Location = new System.Drawing.Point(160, 56);
             this.MskTxtBxHeight.Name = "MskTxtBxHeight";
             this.MskTxtBxHeight.Size = new System.Drawing.Size(234, 29);
             this.MskTxtBxHeight.TabIndex = 17;
@@ -119,7 +99,7 @@
             // MskTxtBxWeight
             // 
             this.MskTxtBxWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MskTxtBxWeight.Location = new System.Drawing.Point(160, 117);
+            this.MskTxtBxWeight.Location = new System.Drawing.Point(160, 91);
             this.MskTxtBxWeight.Name = "MskTxtBxWeight";
             this.MskTxtBxWeight.Size = new System.Drawing.Size(234, 29);
             this.MskTxtBxWeight.TabIndex = 18;
@@ -128,7 +108,7 @@
             // TxtBxName
             // 
             this.TxtBxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBxName.Location = new System.Drawing.Point(160, 47);
+            this.TxtBxName.Location = new System.Drawing.Point(160, 21);
             this.TxtBxName.Name = "TxtBxName";
             this.TxtBxName.Size = new System.Drawing.Size(234, 29);
             this.TxtBxName.TabIndex = 19;
@@ -161,7 +141,7 @@
             // 
             this.textBox8.Enabled = false;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(68, 187);
+            this.textBox8.Location = new System.Drawing.Point(68, 161);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(326, 29);
             this.textBox8.TabIndex = 23;
@@ -170,7 +150,7 @@
             // MskTxtBxForce
             // 
             this.MskTxtBxForce.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MskTxtBxForce.Location = new System.Drawing.Point(160, 152);
+            this.MskTxtBxForce.Location = new System.Drawing.Point(160, 126);
             this.MskTxtBxForce.Name = "MskTxtBxForce";
             this.MskTxtBxForce.ReadOnly = true;
             this.MskTxtBxForce.Size = new System.Drawing.Size(234, 29);
@@ -179,7 +159,7 @@
             // MskTxtBxEffect
             // 
             this.MskTxtBxEffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MskTxtBxEffect.Location = new System.Drawing.Point(160, 187);
+            this.MskTxtBxEffect.Location = new System.Drawing.Point(160, 161);
             this.MskTxtBxEffect.Name = "MskTxtBxEffect";
             this.MskTxtBxEffect.ReadOnly = true;
             this.MskTxtBxEffect.Size = new System.Drawing.Size(234, 29);
@@ -187,9 +167,9 @@
             // 
             // PictureBxImage
             // 
-            this.PictureBxImage.Location = new System.Drawing.Point(238, 242);
+            this.PictureBxImage.Location = new System.Drawing.Point(190, 223);
             this.PictureBxImage.Name = "PictureBxImage";
-            this.PictureBxImage.Size = new System.Drawing.Size(156, 156);
+            this.PictureBxImage.Size = new System.Drawing.Size(204, 175);
             this.PictureBxImage.TabIndex = 26;
             this.PictureBxImage.TabStop = false;
             // 
@@ -197,7 +177,7 @@
             // 
             this.BtImage.BackColor = System.Drawing.SystemColors.Info;
             this.BtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtImage.Location = new System.Drawing.Point(12, 301);
+            this.BtImage.Location = new System.Drawing.Point(12, 274);
             this.BtImage.Name = "BtImage";
             this.BtImage.Size = new System.Drawing.Size(172, 52);
             this.BtImage.TabIndex = 27;
@@ -222,12 +202,10 @@
             this.Controls.Add(this.TxtBxName);
             this.Controls.Add(this.MskTxtBxWeight);
             this.Controls.Add(this.MskTxtBxHeight);
-            this.Controls.Add(this.MskTxtBxId);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Name = "RegisterPokemon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterPokemon";
@@ -239,12 +217,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox MskTxtBxId;
         private System.Windows.Forms.MaskedTextBox MskTxtBxHeight;
         private System.Windows.Forms.MaskedTextBox MskTxtBxWeight;
         private System.Windows.Forms.TextBox TxtBxName;

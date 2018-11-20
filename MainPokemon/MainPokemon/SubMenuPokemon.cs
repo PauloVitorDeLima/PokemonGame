@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.Data.OleDb;
 
 namespace MainPokemon
 {
@@ -58,21 +58,22 @@ namespace MainPokemon
             PictureBoxPokemon.Visible = true;
             try
             {
+                String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+                OleDbConnection Connection = new OleDbConnection(StringConnection);
+                //Abre Conexão
+                Connection.Open();
+                String SQL;
+                SQL = "SELECT * FROM Pokemon";
 
-            
-                StreamReader streamReaderPokemon = new StreamReader(@"C:\Users\Public\DataBase\Pokemons.txt");
+                OleDbDataAdapter adapter = new OleDbDataAdapter(SQL, Connection);
+                DataSet DS = new DataSet();
+                adapter.Fill(DS, "Pokemon");
+                DataGridViewPokemons.DataSource = DS.Tables["Pokemon"];
 
-                string[] Dividir = streamReaderPokemon.ReadToEnd().Split('/');
-                int i = 0;
-                while(streamReaderPokemon.ReadLine() != null)
-                {
-                    DataGridViewPokemons.Columns.Add(Name, Dividir[i]);
-                    i++;
-                }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("ERROR");
+                MessageBox.Show(ex.Message);
             }
         }
     }

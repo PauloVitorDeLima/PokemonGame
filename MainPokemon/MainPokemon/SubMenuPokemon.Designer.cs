@@ -100,6 +100,7 @@
             this.DataGridViewPokemons.Name = "DataGridViewPokemons";
             this.DataGridViewPokemons.Size = new System.Drawing.Size(617, 443);
             this.DataGridViewPokemons.TabIndex = 8;
+            this.DataGridViewPokemons.Visible = false;
             // 
             // SubMenuPokemon
             // 
