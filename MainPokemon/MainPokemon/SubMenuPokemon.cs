@@ -17,6 +17,8 @@ namespace MainPokemon
         {
             InitializeComponent();
         }
+        public String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -40,6 +42,9 @@ namespace MainPokemon
 
         private void BtRegisterPokemon_Click(object sender, EventArgs e)
         {
+            DataGridViewPokemons.Visible = false;
+            PictureBoxPokemon.Visible = false;
+
             RegisterPokemon registerPokemon = new RegisterPokemon();
             registerPokemon.ShowDialog();
         }
@@ -53,12 +58,12 @@ namespace MainPokemon
 
         private void BtListPokemon_Click(object sender, EventArgs e)
         {
-            
+
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
             try
             {
-                String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+                //String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
                 //Abre Conexão
                 Connection.Open();
@@ -71,7 +76,29 @@ namespace MainPokemon
                 DataGridViewPokemons.DataSource = DS.Tables["Pokemon"];
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                //String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+                OleDbConnection Connection = new OleDbConnection(StringConnection);
+                Connection.Open();
+                string Identificador = DataGridViewPokemons.SelectedCells[0].Value.ToString();
+                string SQL = "DELETE FROM Pokemon WHERE ID_Pokemon ="+Identificador;
+
+                OleDbCommand CMD = new OleDbCommand(SQL, Connection);
+                CMD.ExecuteNonQuery();
+                MessageBox.Show("Dados apagados com Sucesso");
+                BtListPokemon_Click(sender, e);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

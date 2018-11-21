@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuPokemon));
             this.BtRegisterPokemon = new System.Windows.Forms.Button();
             this.BtListPokemon = new System.Windows.Forms.Button();
             this.BtReturn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PictureBoxPokemon = new System.Windows.Forms.PictureBox();
             this.DataGridViewPokemons = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtRegisterPokemon
@@ -76,14 +78,6 @@
             this.BtReturn.UseVisualStyleBackColor = false;
             this.BtReturn.Click += new System.EventHandler(this.BtReturn_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(-23, -46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // PictureBoxPokemon
             // 
             this.PictureBoxPokemon.Location = new System.Drawing.Point(12, 208);
@@ -95,12 +89,31 @@
             // 
             // DataGridViewPokemons
             // 
+            this.DataGridViewPokemons.AllowUserToAddRows = false;
+            this.DataGridViewPokemons.AllowUserToDeleteRows = false;
             this.DataGridViewPokemons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 61);
+            this.DataGridViewPokemons.ContextMenuStrip = this.contextMenuStrip3;
+            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 52);
             this.DataGridViewPokemons.Name = "DataGridViewPokemons";
+            this.DataGridViewPokemons.ReadOnly = true;
+            this.DataGridViewPokemons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewPokemons.Size = new System.Drawing.Size(617, 443);
             this.DataGridViewPokemons.TabIndex = 8;
             this.DataGridViewPokemons.Visible = false;
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alterarToolStripMenuItem});
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(181, 48);
+            // 
+            // alterarToolStripMenuItem
+            // 
+            this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarToolStripMenuItem.Text = "Deletar";
+            this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // SubMenuPokemon
             // 
@@ -111,16 +124,15 @@
             this.ClientSize = new System.Drawing.Size(834, 516);
             this.Controls.Add(this.DataGridViewPokemons);
             this.Controls.Add(this.PictureBoxPokemon);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtReturn);
             this.Controls.Add(this.BtListPokemon);
             this.Controls.Add(this.BtRegisterPokemon);
             this.Name = "SubMenuPokemon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SubMenuPokemon";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,8 +142,9 @@
         private System.Windows.Forms.Button BtRegisterPokemon;
         private System.Windows.Forms.Button BtListPokemon;
         private System.Windows.Forms.Button BtReturn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox PictureBoxPokemon;
         private System.Windows.Forms.DataGridView DataGridViewPokemons;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
     }
 }

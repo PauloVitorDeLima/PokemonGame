@@ -128,6 +128,7 @@ namespace MainPokemon
 
                 MessageBox.Show("Pokemon Cadastrado com Sucesso","OKAY", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
+
             }
             catch(Exception ex)
             {
