@@ -97,21 +97,23 @@
             this.DataGridViewPokemons.Name = "DataGridViewPokemons";
             this.DataGridViewPokemons.ReadOnly = true;
             this.DataGridViewPokemons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewPokemons.Size = new System.Drawing.Size(617, 443);
+            this.DataGridViewPokemons.Size = new System.Drawing.Size(646, 443);
             this.DataGridViewPokemons.TabIndex = 8;
             this.DataGridViewPokemons.Visible = false;
+            this.DataGridViewPokemons.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPokemons_CellMouseClick);
             // 
             // contextMenuStrip3
             // 
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.alterarToolStripMenuItem});
             this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip3.Size = new System.Drawing.Size(112, 26);
+            this.contextMenuStrip3.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip3_Opening);
             // 
             // alterarToolStripMenuItem
             // 
             this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.alterarToolStripMenuItem.Text = "Deletar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
@@ -121,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(834, 516);
+            this.ClientSize = new System.Drawing.Size(864, 516);
             this.Controls.Add(this.DataGridViewPokemons);
             this.Controls.Add(this.PictureBoxPokemon);
             this.Controls.Add(this.BtReturn);

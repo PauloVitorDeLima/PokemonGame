@@ -87,20 +87,69 @@ namespace MainPokemon
             
             try
             {
-                //String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
                 Connection.Open();
                 string Identificador = DataGridViewPokemons.SelectedCells[0].Value.ToString();
-                string SQL = "DELETE FROM Pokemon WHERE ID_Pokemon ="+Identificador;
+                DialogResult dialogResult = MessageBox.Show("Realmente deseja apagar esse dado?", "Deletar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string SQL = "DELETE FROM Pokemon WHERE ID_Pokemon =" + Identificador;
 
-                OleDbCommand CMD = new OleDbCommand(SQL, Connection);
-                CMD.ExecuteNonQuery();
-                MessageBox.Show("Dados apagados com Sucesso");
-                BtListPokemon_Click(sender, e);
+                    OleDbCommand CMD = new OleDbCommand(SQL, Connection);
+                    CMD.ExecuteNonQuery();
+                    
+                    MessageBox.Show("Dados apagados com Sucesso");
+                    BtListPokemon_Click(sender, e);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+                Connection.Close();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void contextMenuStrip3_Opening(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                string Identificador = DataGridViewPokemons.SelectedCells[6].Value.ToString();
+                if (Identificador != null)
+                {
+                    MessageBox.Show(Identificador);
+                    string ImagePath = Identificador;
+                    MessageBox.Show(ImagePath);
+                    PictureBoxPokemon.Image = new Bitmap("file:///" + Identificador);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DataGridViewPokemons_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            try
+            {
+                string Identificador = DataGridViewPokemons.SelectedCells[6].Value.ToString();
+                if (Identificador != null)
+                {
+                    string ImagePath = Identificador;
+                    PictureBoxPokemon.Image = new Bitmap(@"" + Identificador);
+                }
+            }
+            catch
+            {
+
             }
         }
     }

@@ -98,6 +98,7 @@ namespace MainPokemon
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 PictureBxImage.Image = new Bitmap(openFile.FileName);
+                PictureBxImage.SizeMode = PictureBoxSizeMode.StretchImage;
                 PathImage = openFile.FileName;
             }
         }
