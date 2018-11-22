@@ -37,6 +37,9 @@
             this.DataGridViewPokemons = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtSearch = new System.Windows.Forms.Button();
+            this.TxtBxSearch = new System.Windows.Forms.TextBox();
+            this.TxtBx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).BeginInit();
             this.contextMenuStrip3.SuspendLayout();
@@ -93,11 +96,11 @@
             this.DataGridViewPokemons.AllowUserToDeleteRows = false;
             this.DataGridViewPokemons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewPokemons.ContextMenuStrip = this.contextMenuStrip3;
-            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 52);
+            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 85);
             this.DataGridViewPokemons.Name = "DataGridViewPokemons";
             this.DataGridViewPokemons.ReadOnly = true;
             this.DataGridViewPokemons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewPokemons.Size = new System.Drawing.Size(646, 443);
+            this.DataGridViewPokemons.Size = new System.Drawing.Size(646, 410);
             this.DataGridViewPokemons.TabIndex = 8;
             this.DataGridViewPokemons.Visible = false;
             this.DataGridViewPokemons.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPokemons_CellMouseClick);
@@ -117,6 +120,39 @@
             this.alterarToolStripMenuItem.Text = "Deletar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
+            // BtSearch
+            // 
+            this.BtSearch.BackColor = System.Drawing.SystemColors.Info;
+            this.BtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtSearch.Location = new System.Drawing.Point(673, 12);
+            this.BtSearch.Name = "BtSearch";
+            this.BtSearch.Size = new System.Drawing.Size(172, 52);
+            this.BtSearch.TabIndex = 22;
+            this.BtSearch.Text = "PESQUISAR";
+            this.BtSearch.UseVisualStyleBackColor = false;
+            this.BtSearch.Visible = false;
+            this.BtSearch.Click += new System.EventHandler(this.BtSearch_Click);
+            // 
+            // TxtBxSearch
+            // 
+            this.TxtBxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBxSearch.Location = new System.Drawing.Point(332, 22);
+            this.TxtBxSearch.Name = "TxtBxSearch";
+            this.TxtBxSearch.Size = new System.Drawing.Size(335, 29);
+            this.TxtBxSearch.TabIndex = 24;
+            this.TxtBxSearch.Visible = false;
+            // 
+            // TxtBx
+            // 
+            this.TxtBx.Enabled = false;
+            this.TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBx.Location = new System.Drawing.Point(205, 22);
+            this.TxtBx.Name = "TxtBx";
+            this.TxtBx.Size = new System.Drawing.Size(462, 29);
+            this.TxtBx.TabIndex = 23;
+            this.TxtBx.Text = "PESQUISAR:";
+            this.TxtBx.Visible = false;
+            // 
             // SubMenuPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +160,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(864, 516);
+            this.Controls.Add(this.TxtBxSearch);
+            this.Controls.Add(this.TxtBx);
+            this.Controls.Add(this.BtSearch);
             this.Controls.Add(this.DataGridViewPokemons);
             this.Controls.Add(this.PictureBoxPokemon);
             this.Controls.Add(this.BtReturn);
@@ -136,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).EndInit();
             this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,5 +188,8 @@
         private System.Windows.Forms.DataGridView DataGridViewPokemons;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem alterarToolStripMenuItem;
+        private System.Windows.Forms.Button BtSearch;
+        private System.Windows.Forms.TextBox TxtBxSearch;
+        private System.Windows.Forms.TextBox TxtBx;
     }
 }

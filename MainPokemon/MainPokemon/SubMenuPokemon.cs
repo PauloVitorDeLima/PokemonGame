@@ -17,7 +17,7 @@ namespace MainPokemon
         {
             InitializeComponent();
         }
-        public String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+        private String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +44,9 @@ namespace MainPokemon
         {
             DataGridViewPokemons.Visible = false;
             PictureBoxPokemon.Visible = false;
+            TxtBx.Visible = false;
+            TxtBxSearch.Visible = false;
+
 
             RegisterPokemon registerPokemon = new RegisterPokemon();
             registerPokemon.ShowDialog();
@@ -61,11 +64,12 @@ namespace MainPokemon
 
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
+            BtSearch.Visible = true;
+            TxtBxSearch.Visible = true;
+            TxtBx.Visible = true;
             try
             {
-                //String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
-                //Abre Conexão
                 Connection.Open();
                 String SQL;
                 SQL = "SELECT * FROM Pokemon";
@@ -118,32 +122,18 @@ namespace MainPokemon
 
         private void contextMenuStrip3_Opening(object sender, CancelEventArgs e)
         {
-            try
-            {
-                string Identificador = DataGridViewPokemons.SelectedCells[6].Value.ToString();
-                if (Identificador != null)
-                {
-                    MessageBox.Show(Identificador);
-                    string ImagePath = Identificador;
-                    MessageBox.Show(ImagePath);
-                    PictureBoxPokemon.Image = new Bitmap("file:///" + Identificador);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         private void DataGridViewPokemons_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
             try
             {
                 string Identificador = DataGridViewPokemons.SelectedCells[6].Value.ToString();
                 if (Identificador != null)
                 {
-                    string ImagePath = Identificador;
+                    //string ImagePath = Identificador;
+                    PictureBoxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
                     PictureBoxPokemon.Image = new Bitmap(@"" + Identificador);
                 }
             }
@@ -151,6 +141,31 @@ namespace MainPokemon
             {
 
             }
+        }
+
+        private void BtSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                OleDbConnection Connection = new OleDbConnection(StringConnection);
+                Connection.Open();
+                String SQL;
+                SQL = "SELECT * FROM Pokemon WHERE Name_Pokemon LIKE '%"+TxtBxSearch.Text+"%'";
+
+                OleDbDataAdapter adapter = new OleDbDataAdapter(SQL, Connection);
+                DataSet DS = new DataSet();
+                adapter.Fill(dataTable);
+                DataGridViewPokemons.DataSource = dataTable;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
         }
     }
 }
