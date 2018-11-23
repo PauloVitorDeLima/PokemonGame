@@ -46,6 +46,7 @@ namespace MainPokemon
             PictureBoxPokemon.Visible = false;
             TxtBx.Visible = false;
             TxtBxSearch.Visible = false;
+            BtSearch.Visible = false;
 
 
             RegisterPokemon registerPokemon = new RegisterPokemon();
@@ -67,6 +68,7 @@ namespace MainPokemon
             BtSearch.Visible = true;
             TxtBxSearch.Visible = true;
             TxtBx.Visible = true;
+
             try
             {
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
@@ -130,11 +132,14 @@ namespace MainPokemon
             try
             {
                 string Identificador = DataGridViewPokemons.SelectedCells[6].Value.ToString();
-                if (Identificador != null)
+                if (Identificador != "")
                 {
-                    //string ImagePath = Identificador;
                     PictureBoxPokemon.SizeMode = PictureBoxSizeMode.StretchImage;
                     PictureBoxPokemon.Image = new Bitmap(@"" + Identificador);
+                }
+                else
+                {
+                    PictureBoxPokemon.Image = new Bitmap(@"C:/Users/Paulo Vitor/OneDrive - Complexo de Ensino Superior do Brasil LTDA/Programação/PokemonGame/MainPokemon/MainPokemon/Imagens/WithoutPicture.png");
                 }
             }
             catch
