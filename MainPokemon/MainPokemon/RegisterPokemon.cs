@@ -120,9 +120,9 @@ namespace MainPokemon
                 Connection.Open();
                 String SQL;
                 SQL = "INSERT INTO Pokemon(Name_Pokemon, Height_Pokemon, Weight_Pokemon, SpecialEffect_Pokemon," +
-                    " Force_Pokemon, PathImage_Pokemon, Evolution_Pokemon) VALUES ";
-                SQL += "('"+pokemon.Name+ "', '"+pokemon.Height+ "', '" + pokemon.Weight+ "','" + pokemon.SpecialEffect+ "', '" 
-                    + pokemon.Force + "','" + pokemon.PathImage+ "','" + pokemon.Evolution + "')";
+                    " Force_Pokemon, PathImage_Pokemon, ID_Trainer) VALUES ";
+                SQL += "('" + pokemon.Name + "', '"+ pokemon.Height + "', '" + pokemon.Weight + "','" + pokemon.SpecialEffect + "', '" 
+                    + pokemon.Force + "','" + pokemon.PathImage + "','" + pokemon.ID_Trainer + "')";
                 OleDbCommand CMD = new OleDbCommand(SQL, Connection);
                 CMD.ExecuteNonQuery();
                 Connection.Close();

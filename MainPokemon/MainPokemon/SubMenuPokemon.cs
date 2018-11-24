@@ -46,7 +46,6 @@ namespace MainPokemon
             PictureBoxPokemon.Visible = false;
             TxtBx.Visible = false;
             TxtBxSearch.Visible = false;
-            BtSearch.Visible = false;
 
 
             RegisterPokemon registerPokemon = new RegisterPokemon();
@@ -65,7 +64,6 @@ namespace MainPokemon
 
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
-            BtSearch.Visible = true;
             TxtBxSearch.Visible = true;
             TxtBx.Visible = true;
 
@@ -90,7 +88,6 @@ namespace MainPokemon
 
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             try
             {
 
@@ -150,13 +147,18 @@ namespace MainPokemon
 
         private void BtSearch_Click(object sender, EventArgs e)
         {
+        }
+
+        private void TxtBxSearch_TextChanged(object sender, EventArgs e)
+        {
+
             try
             {
                 DataTable dataTable = new DataTable();
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
                 Connection.Open();
                 String SQL;
-                SQL = "SELECT * FROM Pokemon WHERE Name_Pokemon LIKE '%"+TxtBxSearch.Text+"%'";
+                SQL = "SELECT * FROM Pokemon WHERE Name_Pokemon LIKE '%" + TxtBxSearch.Text + "%'";
 
                 OleDbDataAdapter adapter = new OleDbDataAdapter(SQL, Connection);
                 DataSet DS = new DataSet();
@@ -168,9 +170,6 @@ namespace MainPokemon
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
     }
 }
