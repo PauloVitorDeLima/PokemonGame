@@ -19,6 +19,8 @@ namespace MainPokemon
         }
         private String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
         private string Identificador;
+        private int Minutes = 59;
+        private int Seconds = 59;
         private void BtVoltar_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
@@ -101,22 +103,65 @@ namespace MainPokemon
 
         private void evoluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                Identificador = DataGridViewPokemons.SelectedCells[0].Value.ToString();
-                PokemonEvolution pokemonEvolution = new PokemonEvolution(Identificador);
-                pokemonEvolution.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            textBox2.Visible = true;
+            TxtBxEvolution.Visible = true;
+            LbTime.Visible = true;
+            LbTime.Text = Minutes + ":" + Seconds;
+            TimerEvolution.Enabled = true;
+            string name = DataGridViewPokemons.SelectedCells[1].Value.ToString();
+            TxtBxEvolution.Text = name.ToUpper();
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void TimerEvolution_Tick(object sender, EventArgs e)
+        {
+            Seconds--;
+            if (Minutes > 0)
+            {
+                if (Seconds < 0)
+                {
+                    Seconds = 59;
+                    Minutes--;
+                }
+            }
+            LbTime.Text = Minutes + ":" + Seconds;
+            if (Minutes == 0 && Seconds == 0)
+            {
+                TimerEvolution.Enabled = false;
+                PokemonDataBase();
+                BtListTrainer_Click(sender, e);
+                MessageBox.Show("EVOLUIU O POKEMON");
+            }
+        }
+
+        private void LbTime_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void PokemonDataBase()
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                OleDbConnection Connection = new OleDbConnection(StringConnection);
+                Connection.Open();
+                string NewForce = DataGridViewPokemons.SelectedCells[5].Value.ToString();
+                int force = Convert.ToInt16(NewForce);
+                force = force + 3;
+                Identificador = DataGridViewPokemons.SelectedCells[0].Value.ToString();
+                string SQL = "UPDATE Pokemon SET Force_Pokemon = '" + force.ToString() + "' WHERE ID_Pokemon =" + Identificador.ToString();
+                OleDbCommand CMD = new OleDbCommand(SQL, Connection);
+                CMD.ExecuteNonQuery();
+                Connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -38,6 +38,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.evoluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PictureBoxPokemon = new System.Windows.Forms.PictureBox();
+            this.TimerEvolution = new System.Windows.Forms.Timer(this.components);
+            this.LbTime = new System.Windows.Forms.Label();
+            this.TxtBxEvolution = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPokemons)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).BeginInit();
@@ -47,7 +51,7 @@
             // 
             this.BtRegisterTrainer.BackColor = System.Drawing.SystemColors.Info;
             this.BtRegisterTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtRegisterTrainer.Location = new System.Drawing.Point(12, 45);
+            this.BtRegisterTrainer.Location = new System.Drawing.Point(12, 12);
             this.BtRegisterTrainer.Name = "BtRegisterTrainer";
             this.BtRegisterTrainer.Size = new System.Drawing.Size(172, 52);
             this.BtRegisterTrainer.TabIndex = 4;
@@ -58,7 +62,7 @@
             // 
             this.BtListTrainer.BackColor = System.Drawing.SystemColors.Info;
             this.BtListTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtListTrainer.Location = new System.Drawing.Point(12, 131);
+            this.BtListTrainer.Location = new System.Drawing.Point(12, 85);
             this.BtListTrainer.Name = "BtListTrainer";
             this.BtListTrainer.Size = new System.Drawing.Size(172, 52);
             this.BtListTrainer.TabIndex = 5;
@@ -70,7 +74,7 @@
             // 
             this.BtVoltar.BackColor = System.Drawing.SystemColors.Info;
             this.BtVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtVoltar.Location = new System.Drawing.Point(12, 455);
+            this.BtVoltar.Location = new System.Drawing.Point(12, 415);
             this.BtVoltar.Name = "BtVoltar";
             this.BtVoltar.Size = new System.Drawing.Size(172, 52);
             this.BtVoltar.TabIndex = 6;
@@ -81,7 +85,7 @@
             // TxtBxSearch
             // 
             this.TxtBxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBxSearch.Location = new System.Drawing.Point(338, 33);
+            this.TxtBxSearch.Location = new System.Drawing.Point(338, 12);
             this.TxtBxSearch.Name = "TxtBxSearch";
             this.TxtBxSearch.Size = new System.Drawing.Size(513, 29);
             this.TxtBxSearch.TabIndex = 29;
@@ -92,8 +96,9 @@
             // 
             this.TxtBx.Enabled = false;
             this.TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBx.Location = new System.Drawing.Point(211, 33);
+            this.TxtBx.Location = new System.Drawing.Point(211, 12);
             this.TxtBx.Name = "TxtBx";
+            this.TxtBx.ReadOnly = true;
             this.TxtBx.Size = new System.Drawing.Size(462, 29);
             this.TxtBx.TabIndex = 28;
             this.TxtBx.Text = "PESQUISAR:";
@@ -105,7 +110,7 @@
             this.DataGridViewPokemons.AllowUserToDeleteRows = false;
             this.DataGridViewPokemons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewPokemons.ContextMenuStrip = this.contextMenuStrip1;
-            this.DataGridViewPokemons.Location = new System.Drawing.Point(205, 97);
+            this.DataGridViewPokemons.Location = new System.Drawing.Point(211, 57);
             this.DataGridViewPokemons.Name = "DataGridViewPokemons";
             this.DataGridViewPokemons.ReadOnly = true;
             this.DataGridViewPokemons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -131,12 +136,52 @@
             // 
             // PictureBoxPokemon
             // 
-            this.PictureBoxPokemon.Location = new System.Drawing.Point(12, 203);
+            this.PictureBoxPokemon.Location = new System.Drawing.Point(12, 154);
             this.PictureBoxPokemon.Name = "PictureBoxPokemon";
             this.PictureBoxPokemon.Size = new System.Drawing.Size(172, 212);
             this.PictureBoxPokemon.TabIndex = 25;
             this.PictureBoxPokemon.TabStop = false;
             this.PictureBoxPokemon.Visible = false;
+            // 
+            // TimerEvolution
+            // 
+            this.TimerEvolution.Interval = 1000;
+            this.TimerEvolution.Tick += new System.EventHandler(this.TimerEvolution_Tick);
+            // 
+            // LbTime
+            // 
+            this.LbTime.AutoSize = true;
+            this.LbTime.BackColor = System.Drawing.SystemColors.Control;
+            this.LbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbTime.Location = new System.Drawing.Point(748, 493);
+            this.LbTime.Name = "LbTime";
+            this.LbTime.Size = new System.Drawing.Size(103, 37);
+            this.LbTime.TabIndex = 30;
+            this.LbTime.Text = "00:00";
+            this.LbTime.Visible = false;
+            this.LbTime.Click += new System.EventHandler(this.LbTime_Click);
+            // 
+            // TxtBxEvolution
+            // 
+            this.TxtBxEvolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBxEvolution.Location = new System.Drawing.Point(181, 501);
+            this.TxtBxEvolution.Name = "TxtBxEvolution";
+            this.TxtBxEvolution.ReadOnly = true;
+            this.TxtBxEvolution.Size = new System.Drawing.Size(513, 29);
+            this.TxtBxEvolution.TabIndex = 32;
+            this.TxtBxEvolution.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(61, 501);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(123, 29);
+            this.textBox2.TabIndex = 31;
+            this.textBox2.Text = "EVOLUINDO:";
+            this.textBox2.Visible = false;
             // 
             // SubMenuTrainer
             // 
@@ -144,7 +189,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MainPokemon.Properties.Resources.Pókemons3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(863, 519);
+            this.ClientSize = new System.Drawing.Size(861, 554);
+            this.Controls.Add(this.TxtBxEvolution);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.LbTime);
             this.Controls.Add(this.TxtBxSearch);
             this.Controls.Add(this.TxtBx);
             this.Controls.Add(this.DataGridViewPokemons);
@@ -174,5 +222,9 @@
         private System.Windows.Forms.PictureBox PictureBoxPokemon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem evoluirToolStripMenuItem;
+        private System.Windows.Forms.Timer TimerEvolution;
+        private System.Windows.Forms.Label LbTime;
+        private System.Windows.Forms.TextBox TxtBxEvolution;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

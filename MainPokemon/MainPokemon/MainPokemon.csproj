@@ -58,12 +58,6 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Pokemon.cs" />
-    <Compile Include="PokemonEvolution.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PokemonEvolution.Designer.cs">
-      <DependentUpon>PokemonEvolution.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterPokemon.cs">
@@ -96,9 +90,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PokemonEvolution.resx">
-      <DependentUpon>PokemonEvolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
