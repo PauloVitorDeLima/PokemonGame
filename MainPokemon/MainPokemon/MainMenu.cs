@@ -19,6 +19,7 @@ namespace MainPokemon
 
         private void BtPokemon_Click(object sender, EventArgs e)
         {
+            //Esconde Menu Principal e abre o Menu do Pokemon
             HideMainMenu();
             SubMenuPokemon pokemon = new SubMenuPokemon();
             pokemon.ShowDialog();
@@ -26,6 +27,7 @@ namespace MainPokemon
 
         private void BtTrainer_Click(object sender, EventArgs e)
         {
+            //Esconde Menu Principal e abre o Menu do Treinador
             HideMainMenu();
             SubMenuTrainer trainer = new SubMenuTrainer();
             trainer.ShowDialog();

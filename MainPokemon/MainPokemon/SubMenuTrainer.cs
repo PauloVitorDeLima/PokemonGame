@@ -17,12 +17,26 @@ namespace MainPokemon
         {
             InitializeComponent();
         }
+        /*
+         * 
+         * 
+         * 
+        ALTERAR O CAMINHO QUANDO MUDAR DE COMPUTADOR APERTE NO SERVER EXPLORER > DATA CONNECTIONS >
+        ADD CONNECTIONS > MICROSOFT ACCESS DATABASE FILE > CONTINUE > BROWSE (AQUI ENCONTRA O ARQUIVO QUE ESTÁ NA PASTA
+        DO PROJETO EM BIN E DEBUG, SELECIONA E POR FIM CLIQUE EM ADVANCED > ENTÃO COPIE O CAMINHO E SUBSTITUIA
+         *
+         *
+         *
+         */
         private String StringConnection = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Paulo Vitor\OneDrive - Complexo de Ensino Superior do Brasil LTDA\Programação\PokemonGame\MainPokemon\MainPokemon\bin\Debug\DataBaseAccess.mdb";
+        //Identificador para evolução
         private string Identificador;
+        //tempo para evoluir o Pokemon
         private int Minutes = 59;
         private int Seconds = 59;
         private void BtVoltar_Click(object sender, EventArgs e)
         {
+            //abre menu principal e esconde o menu do treinador
             MainMenu mainMenu = new MainMenu();
             this.Hide();
             mainMenu.ShowDialog();
@@ -30,6 +44,7 @@ namespace MainPokemon
 
         private void BtListTrainer_Click(object sender, EventArgs e)
         {
+            //deixa visivel
             DataGridViewPokemons.Visible = true;
             PictureBoxPokemon.Visible = true;
             TxtBxSearch.Visible = true;
@@ -37,14 +52,19 @@ namespace MainPokemon
 
             try
             {
+                //Cria conexão        
                 OleDbConnection Connection = new OleDbConnection(StringConnection);
+                //abre conexão
                 Connection.Open();
+                //SQL Linguagem do Banco de Dados
                 String SQL;
+                //Seleciona tudo da tabela Pokemon
                 SQL = "SELECT * FROM Pokemon";
 
                 OleDbDataAdapter adapter = new OleDbDataAdapter(SQL, Connection);
                 DataSet DS = new DataSet();
                 adapter.Fill(DS, "Pokemon");
+                //mostra no data Grid os selecionados
                 DataGridViewPokemons.DataSource = DS.Tables["Pokemon"];
 
             }
@@ -162,6 +182,11 @@ namespace MainPokemon
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void BtRegisterTrainer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

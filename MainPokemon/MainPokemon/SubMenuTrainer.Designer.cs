@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.BtRegisterTrainer = new System.Windows.Forms.Button();
             this.BtListTrainer = new System.Windows.Forms.Button();
             this.BtVoltar = new System.Windows.Forms.Button();
             this.TxtBxSearch = new System.Windows.Forms.TextBox();
@@ -47,22 +46,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
             // 
-            // BtRegisterTrainer
-            // 
-            this.BtRegisterTrainer.BackColor = System.Drawing.SystemColors.Info;
-            this.BtRegisterTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtRegisterTrainer.Location = new System.Drawing.Point(12, 12);
-            this.BtRegisterTrainer.Name = "BtRegisterTrainer";
-            this.BtRegisterTrainer.Size = new System.Drawing.Size(172, 52);
-            this.BtRegisterTrainer.TabIndex = 4;
-            this.BtRegisterTrainer.Text = "CADASTRAR TREINADORES";
-            this.BtRegisterTrainer.UseVisualStyleBackColor = false;
-            // 
             // BtListTrainer
             // 
             this.BtListTrainer.BackColor = System.Drawing.SystemColors.Info;
             this.BtListTrainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtListTrainer.Location = new System.Drawing.Point(12, 85);
+            this.BtListTrainer.Location = new System.Drawing.Point(12, 12);
             this.BtListTrainer.Name = "BtListTrainer";
             this.BtListTrainer.Size = new System.Drawing.Size(172, 52);
             this.BtListTrainer.TabIndex = 5;
@@ -136,7 +124,7 @@
             // 
             // PictureBoxPokemon
             // 
-            this.PictureBoxPokemon.Location = new System.Drawing.Point(12, 154);
+            this.PictureBoxPokemon.Location = new System.Drawing.Point(12, 136);
             this.PictureBoxPokemon.Name = "PictureBoxPokemon";
             this.PictureBoxPokemon.Size = new System.Drawing.Size(172, 212);
             this.PictureBoxPokemon.TabIndex = 25;
@@ -199,7 +187,6 @@
             this.Controls.Add(this.PictureBoxPokemon);
             this.Controls.Add(this.BtVoltar);
             this.Controls.Add(this.BtListTrainer);
-            this.Controls.Add(this.BtRegisterTrainer);
             this.Name = "SubMenuTrainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SubMenuTrainer";
@@ -212,8 +199,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtRegisterTrainer;
         private System.Windows.Forms.Button BtListTrainer;
         private System.Windows.Forms.Button BtVoltar;
         private System.Windows.Forms.TextBox TxtBxSearch;
